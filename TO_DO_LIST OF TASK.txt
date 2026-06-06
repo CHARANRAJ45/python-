@@ -1,0 +1,35 @@
+my_tasks=[]
+
+def add_task(task_description):
+    task_id=len(my_tasks)+1
+
+    task={'task_id':task_id,
+          'description':task_description}
+    my_tasks.append(task)
+
+def view_tasks():
+    if not my_tasks:
+        print("there is no task")
+    else:
+        for index, item in enumerate(my_tasks):
+            print(f"Memory Index: [{index}] | Task ID: {item['task_id']} | Objective: {item['description']}")
+
+def main():
+    print("welcome to project to do loop")
+    while True:
+        print("1.add task")
+        print("2.view tasks")
+        print("3.exit")
+        choice=input("enter your choice:  ")
+        if choice=='1':
+            task_description=input("enter task descripyion:....")
+            add_task(task_description)
+        elif choice=='2':
+            view_tasks()
+        elif choice=='3':
+            print("terminateing process and memory clear")
+            break
+        else:
+            return "invalid choice"
+if __name__=='__main__':
+    main()
